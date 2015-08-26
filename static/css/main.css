@@ -1,0 +1,30 @@
+body {
+    background-color: #fafafa;
+    font-size: 14px;
+    overflow-x: hidden;
+    margin:0 auto;
+}
+nav .navbar-header a:focus,nav .navbar-header a:hover {
+  color: #fafafa;
+}
+nav .navbar-header a:focus,nav .navbar-header a:hover {
+  color: #fafafa;
+}
+.navbar-right>li>a:focus, .navbar-right>li>a:hover {
+  text-decoration: none;
+  background-color: #ff7f50;
+  color: #fafafa;
+}
+nav a{
+    color:#fafafa;
+}
+iframe {
+  width: 100%;
+  height: 500px;
+}
+.navbar{
+    background-color:#ff7f50;
+}
+.Media-container-info{
+    height:500px;
+}

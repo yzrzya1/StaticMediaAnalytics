@@ -1,0 +1,63 @@
+<div class="row" ng-show="nytMedia.containerShow">
+
+  <div class="col-md-7">
+    <iframe id='changeIframe'
+            <!--src="http://topics.nytimes.com/top/reference/timestopics/people/c/hillary_rodham_clinton/index.html"-->
+      ></iframe>
+  </div>
+  <div class="col-md-4">
+    <span class="iframe-info">
+    <h3> {{nytMedia.iframeComment}}</h3>
+    </span>
+    <button class='btn btn-danger' ng-click="nytMedia.containerShow=!nytMedia.containerShow;nytMedia.analysisShow=!nytMedia.analysisShow"><h4>Let's change that</h4></button>
+  </div>
+</div>
+<div class="row" ng-show="nytMedia.analysisShow">
+  <div class="col-md-2">
+    <h3 id='instructions'>Select a topic:</h3>
+
+    <a ng-repeat="topicHeader in nytMedia.topics.level_1" class='topic-comment-block list-group-item' onclick="toggleComments(this);">
+      <h5 class='topic-header'><span class='topic'>{{topicHeader.header}}</span></h5>
+    </a>
+    <a class='topic-comment-block list-group-item'><h4 class='topic-header'>... more ...</h4></a>
+  </div>
+  <div class="col-md-10">
+          <div id='chartbox' class='row'>
+            <div class='doughnut chartbox col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2'>
+              <h3 class='chart-title' id='topic-name'>Total Score</h3>
+              <h3 class='topic-score'></h3>
+              <div id='topic-chart-container'>
+                <canvas class='topic-chart' id="myChart2" width="100" height="100"></canvas>
+              </div>
+            </div>
+            <div class='trend chartbox col-md-6 col-xs-6'>
+              <h3 class='chart-title'>6-Month Trend (coming soon)</h3>
+              <div id='trend-chart-container'>
+                <canvas class='trend-chart' id="myChart3" width="400" height="125"></canvas>
+              </div>
+            </div>
+          </div>
+    <div id='comments' class='row'>
+      <div class='col-md-3 col-xs-3'>
+        <h3 class='list-header'><span id='positive-count' class='comment-count'></span>Positive Comments</h3>
+        <ul class='comment-list' id='positive-comments'>
+        </ul>
+      </div>
+      <div class='col-md-3 col-xs-3'>
+        <h3 class='list-header'><span id='negative-count' class='comment-count'></span>Negative Comments</h3>
+        <ul class='comment-list' id='negative-comments'>
+        </ul>
+      </div>
+      <div id='reviews' class='col-md-6 col-xs-6'>
+        <h3 style='text-align: center'>Article Text</h3>
+        <div id='review-container' class='well'>
+          <div id='review-text'>
+            <review-text ng-repeat="topicReview in nytMedia.topics.reviewText.p" class="review-text-container">
+              <p ng-repeat="topicA in topicReview.a" class="repeat-p"><a id="{{topicA.pid}}">{{topicA.ptext}} </a></p>
+            </review-text>
+          </div>
+          </div>
+       </div>
+    </div>
+  </div>
+</div>

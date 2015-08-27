@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('yoApp', [
     'ngRoute'
   ])
@@ -19,12 +19,27 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/nyt', {
+        templateUrl: 'views/nyt.html',
+        controller: 'NytCtrl',
+        controllerAs: 'nyt'
       })
+      .when('/hp', {
+        templateUrl: 'views/hp.html',
+        controller: 'HpCtrl',
+        controllerAs: 'hp'
+      })
+      //.when('/about', {
+      //  templateUrl: 'views/about.html',
+      //  controller: 'AboutCtrl',
+      //  controllerAs: 'about'
+      //})
       .otherwise({
         redirectTo: '/'
       });
   });
+
+app.controller("indexCtrl", function ($scope) {
+  var d = new Date();
+  $scope.navTime = d.toDateString();
+});
